@@ -27,3 +27,24 @@ Th best way to achieve a good, clean scRNA-seq data set is to optimize your diss
 
 
  ![Parse](/images/Parse_Comb_Bar.png)
+
+ - Droplet Based - A second type of library preparation is known as droplet based library preparation. Barcoded gel beads containing a read 1 primer, 10X barcode, unique molecular identifier (UMI), and a poly A sequence flow through a chamber and combine with a single cell in an oil bubble with enzymes. Thousands of reactions take place within these oil bubbles resulting in transcripts labeled with a cell barcode and a transcript barcode. These barcodes allow us to map back transcript to single cells. An example of droplet based library preparation is the 10X Genomics library preparation pipeline. A link to the 10X Genomics website detailing this process can be found [here](https://www.10xgenomics.com/)
+
+ ![10X_Lib_Prep](/images/10X_Lib_Prep.jpeg)
+
+ # Cell Ranger Pipeline
+ ### Cell Ranger File Types
+
+ - It is important to understand which files to work with from a Cell Ranger run. Cell Ranger provides a number of dynamic file types that allow you to interface with your data. A comprehensive description of each of these file types is provided in the table below:
+
+ ![File_Des](/images/File_Des.png)
+
+ - The web_summary.html is a useful tool for gaining insight into the quality of the single cell library you sequenced. Below is a screen shot example of a web_summary taken from the 10X Genomics website. The "Summary" tab contains several metrics for your data set including the estimated number of cells sequenced, mean reads per cell, and median genes per cell among others. If the estimated number of cells sequenced is very low, it is possible that you under loaded the chromium controller and if the estimated number of cells sequenced is very high is could mean that the controller was overloaded.
+
+ ![web_summary](/images/websummary_stats.png)
+
+ - Your web_summary.html will also display two t-SNE projections. One t-SNE is colored by UMI counts. This is the number of UMIs per cell. Cells with an unusually high UMI count could be doublets. When two cells stick together and are placed in the same oil bubble with one gel emulsification bead, the transcripts in both of those cells receive the same 10X cell-specific barcode. With two cells, this could mean double the UMIs, which will display in the UMI count t-SNE as red.
+
+ - The second t-SNE plot is a cursory clustering of your sequenced cells. This clustering is subject to change after you begin downstream processing in Seurat or Monocle. For example, you will filter out potential doublets and negatives. There are options to filter out dead cells and subset on cells with lowly expressed genes. This t-SNE is accompanied by "Top Features by Cluster", or the genes that distinguish the cluster from one another.
+
+ ![web_summary](/images/websummary_t-SNE.png)
