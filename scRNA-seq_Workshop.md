@@ -27,4 +27,4 @@ Th best way to achieve a good, clean scRNA-seq data set is to optimize your diss
 
 
 
- <img src="../scRNA-seq_Workshop/images/Parse_Comb_Bar.png" height="110" width="150"/>
+ <img src="../images/Parse_Comb_Bar.png">
