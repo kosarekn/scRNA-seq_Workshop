@@ -25,4 +25,6 @@ Th best way to achieve a good, clean scRNA-seq data set is to optimize your diss
 # Library Preparation Methods
  - Combinatorial Barcoding - Individual cells are placed in their own barcoded wells. These barcodes are appended to the transcripts in the wells. This process is repeated two more times before the cells are pooled into 8 libraries. These cells are then lysed and receive an Illumina barcode. Transcripts that contain the same four barcode combination are from the same cell. See the below schematic to better understand his process. One example of this type of library preparation is Parse Bioscience. Here is a link to a video detailing this [process](https://www.youtube.com/watch?v=HVx4UBweNH4) and a link to the Parse Biosciences [website](https://www.parsebiosciences.com/).
 
- <img src="../images/Parse_Comb_Bar" height="110" width="150"/>
+
+
+ <img src="../scRNA-seq_Workshop/images/Parse_Comb_Bar.png" height="110" width="150"/>
