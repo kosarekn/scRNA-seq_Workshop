@@ -91,7 +91,7 @@ sample_names <- c()
 for (i in files){
 	print(i)
 	sample_name <- gsub("_filtered_feature_bc_matrix.h5","",i)
-			sample_names <- append(sample_names, sample_name)
+	sample_names <- append(sample_names, sample_name)
 }
 print(sample_names)
 object <- merge(first_object, object_list, add.cell.ids = sample_names)
