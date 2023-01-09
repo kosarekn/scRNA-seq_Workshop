@@ -58,3 +58,6 @@ Th best way to achieve a good, clean scRNA-seq data set is to optimize your diss
  - Once you are largely satisfied that your data set is of good quality, meaning you have captured approximately the number of cells you intended to capture and your read depth is adequate, you can read your data into R using Seurat. [Surat](https://satijalab.org/seurat/) was developed by the Satija lab as an R toolkit for single cell genomics. The Seurat website is a valuable resource for tutorials, troubleshooting, and function information.
 
  Let's begin by reading in the example data set we will be working with in this workshop:
+ ```{r}
+ print("Hello World")
+ ```
