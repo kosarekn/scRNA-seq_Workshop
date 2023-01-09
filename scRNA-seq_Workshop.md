@@ -58,6 +58,41 @@ Th best way to achieve a good, clean scRNA-seq data set is to optimize your diss
  - Once you are largely satisfied that your data set is of good quality, meaning you have captured approximately the number of cells you intended to capture and your read depth is adequate, you can read your data into R using Seurat. [Surat](https://satijalab.org/seurat/) was developed by the Satija lab as an R toolkit for single cell genomics. The Seurat website is a valuable resource for tutorials, troubleshooting, and function information.
 
  Let's begin by reading in the example data set we will be working with in this workshop:
+
  ```{r}
- print("Hello World")
+## Loading Libraries
+library(Seurat)
+library(SeuratData)
+library(ggplot2)
+library(patchwork)
+library(dplyr)
+library(hdf5r)
  ```
+```{r}
+path = "/Users/noellekosarek/Desktop/GSE189460_RAW/"
+files <- list.files(path=path)
+object_list = c()
+
+x = 1
+for (i in files){
+	if (x == 1){
+		data <- Read10X_h5(paste0(path,i))
+		first_object <- CreateSeuratObject(data, min.cells = 3, min.features = 200)
+		x = x+1
+	} else {
+		data <- Read10X_h5(paste0(path,i))
+		data_obj <- CreateSeuratObject(data, min.cells = 3, min.features = 200)
+		object_list <- append(object_list, data_obj)
+	}
+  }
+
+#Get sample names for each file read in
+sample_names <- c()
+for (i in files){
+	print(i)
+	sample_name <- gsub("_filtered_feature_bc_matrix.h5","",i)
+			sample_names <- append(sample_names, sample_name)
+}
+print(sample_names)
+object <- merge(first_object, object_list, add.cell.ids = sample_names)
+```
